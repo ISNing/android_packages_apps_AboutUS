@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2020 The exTHmUI Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:orientation="vertical"
+                                                   android:layout_width="wrap_content"
+                                                   android:layout_height="wrap_content"
+                                                   android:id="@+id/contributor_dialog">
+
+    <TextView
+            android:text="@string/contributor_dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contributor_dialog_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="24sp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingBottom="8dp"/>
+
+    <ImageButton
+            android:id="@+id/coolapk_action"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/github_action"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/contributor_dialog_title"
+            android:layout_gravity="center"
+            android:contentDescription="@string/image_of_the_coolapk_button"
+            android:src="@drawable/ic_web_black_24dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:layout_margin="16dp"/>
+
+    <ImageButton
+            android:id="@+id/github_action"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/website_action"
+            app:layout_constraintStart_toEndOf="@id/coolapk_action"
+            app:layout_constraintTop_toBottomOf="@id/contributor_dialog_title"
+            android:layout_gravity="center"
+            android:contentDescription="@string/image_of_the_github_button"
+            android:src="@drawable/ic_web_black_24dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:layout_margin="16dp"/>
+
+    <ImageButton
+            android:id="@+id/website_action"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/github_action"
+            app:layout_constraintTop_toBottomOf="@id/contributor_dialog_title"
+            android:layout_gravity="center"
+            android:contentDescription="@string/image_of_contributor_s_personal_website_button"
+            android:src="@drawable/ic_web_black_24dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:layout_margin="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
