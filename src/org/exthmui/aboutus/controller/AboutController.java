@@ -20,6 +20,8 @@ import android.content.Context;
 import android.util.Log;
 import org.exthmui.aboutus.model.Contributor;
 import org.exthmui.aboutus.model.ContributorInfo;
+import org.exthmui.aboutus.model.Maintainer;
+import org.exthmui.aboutus.model.MaintainerInfo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,6 +34,7 @@ public class AboutController {
     private final String TAG = "AboutController";
     private final Context mContext;
     private Map<String, Contributor> mContributors = new HashMap<>();
+    private Map<String, Maintainer> mMaintainer = new HashMap<>();
 
     private AboutController(Context context) {
         mContext = context.getApplicationContext();
@@ -52,7 +55,19 @@ public class AboutController {
             return false;
         }
         Contributor contributor = new Contributor(contributorInfo);
-        mContributors.put(contributor.getId(), new Contributor(contributor));
+        mContributors.put(contributor.getId(), contributor);
+        return true;
+    }
+
+    public boolean addMaintainer(final MaintainerInfo maintainerInfo) {
+        Log.d(TAG, "Adding maintainer: " + maintainerInfo.getId());
+        if (mMaintainer.containsKey(maintainerInfo.getId())) {
+            Log.d(TAG, "Maintainer (" + maintainerInfo.getId() + ") already added");
+            Maintainer maintainerAdded = mMaintainer.get(maintainerInfo.getId());
+            return false;
+        }
+        Maintainer maintainer = new Maintainer(maintainerInfo);
+        mMaintainer.put(maintainer.getId(), maintainer);
         return true;
     }
 
@@ -62,5 +77,13 @@ public class AboutController {
 
     public ContributorInfo getContributor(String id) {
         return mContributors.get(id);
+    }
+
+    public List<MaintainerInfo> getMaintainer() {
+        return new ArrayList<MaintainerInfo>(mMaintainer.values());
+    }
+
+    public MaintainerInfo getMaintainer(String id) {
+        return mMaintainer.get(id);
     }
 }

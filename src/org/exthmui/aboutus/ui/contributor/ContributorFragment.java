@@ -26,11 +26,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.google.android.material.snackbar.Snackbar;
 import org.exthmui.aboutus.R;
 import org.exthmui.aboutus.Utils;
 import org.exthmui.aboutus.controller.AboutController;
@@ -120,7 +121,7 @@ public class ContributorFragment extends Fragment {
     private void downloadContributorsList() {
         final File jsonFile = Utils.getCachedContributorsList(Objects.requireNonNull(getContext()));
         final File jsonFileTmp = new File(jsonFile.getAbsolutePath() + UUID.randomUUID());
-        String url = Utils.getServerURL(getContext());
+        String url = Utils.getContributorsListServerURL(getContext());
         Log.d(TAG, "Checking " + url);
 
         DownloadClient.DownloadCallback callback = new DownloadClient.DownloadCallback() {
@@ -129,7 +130,15 @@ public class ContributorFragment extends Fragment {
                 Log.e(TAG, "Could not download updates list");
                 Objects.requireNonNull(getActivity()).runOnUiThread(() -> {
                     if (!cancelled) {
-                        showSnackbar(R.string.snack_contributors_check_failed, Snackbar.LENGTH_LONG);
+                        if (jsonFile.exists()) {
+                            try {
+                                loadContributorsList(jsonFile);
+                                Log.d(TAG, "Cached contributor list parsed");
+                            } catch (IOException | JSONException e) {
+                                Log.e(TAG, "Error while parsing json list", e);
+                                showToast(R.string.snack_contributors_check_failed, Toast.LENGTH_LONG);
+                            }
+                        }
                     }
                 });
             }
@@ -157,7 +166,7 @@ public class ContributorFragment extends Fragment {
                     .build();
         } catch (IOException exception) {
             Log.e(TAG, "Could not build download client");
-            showSnackbar(R.string.snack_contributors_check_failed, Snackbar.LENGTH_LONG);
+            showToast(R.string.snack_contributors_check_failed, Toast.LENGTH_LONG);
             return;
         }
 
@@ -170,12 +179,12 @@ public class ContributorFragment extends Fragment {
             jsonNew.renameTo(json);
         } catch (IOException | JSONException e) {
             Log.e(TAG, "Could not read json", e);
-            showSnackbar(R.string.snack_contributors_check_failed, Snackbar.LENGTH_LONG);
+            showToast(R.string.snack_contributors_check_failed, Toast.LENGTH_LONG);
         }
     }
 
-    public void showSnackbar(int stringId, int duration) {
-        Snackbar.make(getView(), stringId, duration).show();
+    public void showToast(int stringId, int duration) {
+        Toast.makeText(getContext(), stringId, duration).show();
     }
 
     protected void showContributorDialog(ContributorInfo contributorInfo) {

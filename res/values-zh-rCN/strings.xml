@@ -21,4 +21,5 @@
     <string name="menu_device_maintainer">设备维护者</string>
     <string name="menu_contributor">贡献者</string>
     <string name="title_exthmui_contributors">exTHmUI 贡献者列表</string>
+    <string name="contributor_dialog_title">联系方式</string>
 </resources>

@@ -37,5 +37,5 @@
             android:id="@+id/navigation_notifications"
             android:name="org.exthmui.aboutus.ui.device_maintainer.DeviceMaintainerFragment"
             android:label="@string/menu_device_maintainer"
-            tools:layout="@layout/fragment_notifications"/>
+            tools:layout="@layout/fragment_maintainer"/>
 </navigation>

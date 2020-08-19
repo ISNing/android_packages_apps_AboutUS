@@ -16,10 +16,26 @@
 
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:style/Theme.DeviceDefault.Light.DarkActionBar">
+    <style name="Theme.exTHmUI" parent="android:Theme.DeviceDefault.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+        <item name="android:actionBarStyle">@style/Theme.exTHmUI.ActionBar</item>
     </style>
+
+    <style name="Theme.exTHmUI.ActionBar" parent="android:Widget.DeviceDefault.ActionBar">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:backgroundSplit">@color/colorPrimary</item>
+        <item name="android:backgroundStacked">@color/colorPrimary</item>
+        <item name="android:titleTextStyle">@style/Theme.exTHmUI.ActionBar.TitleTextStyle</item>
+    </style>
+
+    <style name="Theme.exTHmUI.ActionBar.TitleTextStyle" parent="android:TextAppearance.DeviceDefault.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 2020 The exTHmUI Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/maintainer_container"
+    tools:context=".ui.device_maintainer.DeviceMaintainerFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/maintainer_info_container"
+            android:orientation="vertical"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <org.exthmui.aboutus.ui.OnlineImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:id="@+id/maintainer_avatar"
+                android:src="@drawable/ic_contributor_avatar_logo" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    style="?android:attr/textAppearanceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/maintainer_name"
+                    android:text="Maintainer" />
+
+                <TextView
+                    style="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:id="@+id/maintainer_summary"
+                    android:text="Maintainer summary" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="8dp"
+        android:id="@+id/maintain_device_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/maintainer_info_container">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                style="?android:attr/textAppearanceLarge"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Maintain devices" />
+
+            <TextView
+                style="?android:attr/textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:id="@+id/maintainer_maintain_devices"
+                android:text="MI 6, MI 9, MI 10 Pro" />
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/maintain_device_container"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/contributor_dialog">
+
+        <TextView
+            android:text="@string/contributor_dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contributor_dialog_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="22sp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/coolapk_action"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/github_action"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/contributor_dialog_title"
+            android:layout_gravity="center"
+            android:contentDescription="@string/image_of_the_coolapk_button"
+            android:src="@drawable/ic_coolapk_logo"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:layout_margin="16dp"/>
+
+        <ImageButton
+            android:id="@+id/github_action"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/website_action"
+            app:layout_constraintStart_toEndOf="@id/coolapk_action"
+            app:layout_constraintTop_toBottomOf="@id/contributor_dialog_title"
+            android:layout_gravity="center"
+            android:contentDescription="@string/image_of_the_github_button"
+            android:src="@drawable/ic_github_logo"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:layout_margin="16dp"/>
+
+        <ImageButton
+            android:id="@+id/website_action"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/github_action"
+            app:layout_constraintTop_toBottomOf="@id/contributor_dialog_title"
+            android:layout_gravity="center"
+            android:contentDescription="@string/image_of_contributor_s_personal_website_button"
+            android:src="@drawable/ic_custom_url_logo"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:layout_margin="16dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

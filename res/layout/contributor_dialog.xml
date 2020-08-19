@@ -15,67 +15,68 @@
   ~ limitations under the License.
   -->
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   android:orientation="vertical"
-                                                   android:layout_width="wrap_content"
-                                                   android:layout_height="wrap_content"
-                                                   android:id="@+id/contributor_dialog">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/contributor_dialog">
 
     <TextView
-            android:text="@string/contributor_dialog_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/contributor_dialog_title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:textSize="24sp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:paddingBottom="8dp"/>
+        android:text="@string/contributor_dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/contributor_dialog_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="22sp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageButton
-            android:id="@+id/coolapk_action"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/github_action"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/contributor_dialog_title"
-            android:layout_gravity="center"
-            android:contentDescription="@string/image_of_the_coolapk_button"
-            android:src="@drawable/ic_web_black_24dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:layout_margin="16dp"/>
+        android:id="@+id/coolapk_action"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/github_action"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contributor_dialog_title"
+        android:layout_gravity="center"
+        android:contentDescription="@string/image_of_the_coolapk_button"
+        android:src="@drawable/ic_coolapk_logo"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:layout_margin="16dp"/>
 
     <ImageButton
-            android:id="@+id/github_action"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/website_action"
-            app:layout_constraintStart_toEndOf="@id/coolapk_action"
-            app:layout_constraintTop_toBottomOf="@id/contributor_dialog_title"
-            android:layout_gravity="center"
-            android:contentDescription="@string/image_of_the_github_button"
-            android:src="@drawable/ic_web_black_24dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:layout_margin="16dp"/>
+        android:id="@+id/github_action"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/website_action"
+        app:layout_constraintStart_toEndOf="@id/coolapk_action"
+        app:layout_constraintTop_toBottomOf="@id/contributor_dialog_title"
+        android:layout_gravity="center"
+        android:contentDescription="@string/image_of_the_github_button"
+        android:src="@drawable/ic_github_logo"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:layout_margin="16dp"/>
 
     <ImageButton
-            android:id="@+id/website_action"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/github_action"
-            app:layout_constraintTop_toBottomOf="@id/contributor_dialog_title"
-            android:layout_gravity="center"
-            android:contentDescription="@string/image_of_contributor_s_personal_website_button"
-            android:src="@drawable/ic_web_black_24dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:layout_margin="16dp"/>
+        android:id="@+id/website_action"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/github_action"
+        app:layout_constraintTop_toBottomOf="@id/contributor_dialog_title"
+        android:layout_gravity="center"
+        android:contentDescription="@string/image_of_contributor_s_personal_website_button"
+        android:src="@drawable/ic_custom_url_logo"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:layout_margin="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
